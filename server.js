@@ -1,4 +1,5 @@
 const express = require('express');
+const PORT = process.env.PORT || 5000
 const uuid = require('uuid'); //allowing people to add helicopters in future.
 const app = express();
 const data = require('./data2.json');
@@ -8,11 +9,11 @@ app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 
 app.get('/', (_req,res,next)=>{
-    res.send("Hi there and Welcome to Heli-info")
+    res.send("Hi there and Welcome to Heli-info by Jordan Cheng (www.jordancheng.com)")
     next()
 })
 
-app.listen(8080, ()=> console.info('You are running on Port:8080 with Heli-info by Jordan Cheng.'));
+app.listen(PORT, ()=> console.info('You are running on Port:`${PORT}` with Heli-info by Jordan Cheng.'));
 
 //Getting list of helicopters.
 app.get('/list', (req,res,next)=>{
